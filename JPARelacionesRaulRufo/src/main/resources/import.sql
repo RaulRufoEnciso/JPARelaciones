@@ -1,0 +1,7 @@
+INSERT INTO COURSE (ID,TITLE ) VALUES (001,'Curso 1');
+INSERT INTO COURSE (ID,TITLE ) VALUES (002,'Curso 2');
+INSERT INTO COURSE (ID,TITLE ) VALUES (003,'Curso 3');
+
+INSERT INTO COURSE_MATERIAL (ID,URL ) VALUES (0001, 'http://net-balmes-JPARelaciones-rrufo.net');
+INSERT INTO COURSE_MATERIAL (ID,URL ) VALUES (0002, 'http://net-balmes-JPARelaciones-rrufo.net');
+INSERT INTO COURSE_MATERIAL (ID,URL ) VALUES (0003, 'http://net-balmes-JPARelaciones-rrufo.net');
