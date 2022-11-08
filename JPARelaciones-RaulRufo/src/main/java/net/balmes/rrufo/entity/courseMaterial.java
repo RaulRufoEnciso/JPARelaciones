@@ -21,4 +21,7 @@ public class courseMaterial {
 	private long id;
 	 
 	private String url;
+	
+	@OneToOne
+	private course course;
 }
