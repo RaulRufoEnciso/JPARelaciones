@@ -37,7 +37,7 @@ public class courseController {
 		
 		return cursosRep.findAll();
 	}
-	/*
+	
 	//Control del error
 	@ExceptionHandler(Exception.class)
 	public ResponseEntity<apiError> handlecourseNoEncontrado(Exception ex){
@@ -48,5 +48,5 @@ public class courseController {
 		apierror.setMensaje(ex.getMessage());
 		
 		return ResponseEntity.status(HttpStatus.NOT_FOUND).body(apierror);
-	}*/
+	}
 }
