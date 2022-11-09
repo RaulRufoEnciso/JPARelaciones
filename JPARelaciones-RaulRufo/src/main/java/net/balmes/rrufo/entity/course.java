@@ -24,7 +24,7 @@ public class course {
 	 
 	private String title;
 	
-	@JsonIgnore
 	@OneToOne(mappedBy = "course")
+	@JsonIgnore
 	private courseMaterial courseMaterial;
 }
