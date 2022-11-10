@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import net.balmes.rrufo.entity.courseMaterial;
+import net.balmes.rrufo.entity.CourseMaterial;
 import net.balmes.rrufo.repositorio.courseMaterialRepositorio;
 
 import net.balmes.rrufo.error.apiError;
@@ -24,15 +24,15 @@ public class courseMaterialController {
 	
 	// Muestra los cursos por Id
 	@GetMapping("cursosMaterial/{id}")
-	public courseMaterial getCursosMaterialId(@PathVariable long id) {
-		courseMaterial cursosMaterial = cursosMaterialRep.findById(id).get();
+	public CourseMaterial getCursosMaterialId(@PathVariable long id) {
+		CourseMaterial cursosMaterial = cursosMaterialRep.findById(id).get();
 		
 		return cursosMaterial;
 	}
 	
 	// Muestra todos los cursos
 	@GetMapping("cursosMaterial")
-	public Iterable<courseMaterial> getCursosMaterial() {
+	public Iterable<CourseMaterial> getCursosMaterial() {
 		
 		return cursosMaterialRep.findAll();
 	}
