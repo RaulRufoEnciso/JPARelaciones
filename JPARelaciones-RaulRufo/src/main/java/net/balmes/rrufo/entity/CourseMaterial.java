@@ -9,6 +9,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -25,12 +27,33 @@ public class CourseMaterial {
 	private long id;
 	 
 	private String url;
-	
-	/*@OneToOne
+	/*
+	@OneToOne
 	private Course Course;
 	*/
-	
+	/*
 	@ManyToOne
 	private Course course;
+	*/
+	/*
+	@ManyToOne(cascade = )
+	@JsonIgnore
+	private Course course;
+	*/
+	/*
+	@ManyToOne(fetch = )
+	@JsonIgnore
+	private Course course;
+	*/
+	
+	@ManyToOne(optional = )
+	@JsonIgnore
+	private Course course;
+	
+	/*
+	@ManyToOne(targetEntity = )
+	@JsonIgnore
+	private Course course;
+	*/
 }
 
