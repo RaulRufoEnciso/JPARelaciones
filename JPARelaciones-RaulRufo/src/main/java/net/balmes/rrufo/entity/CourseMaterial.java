@@ -1,6 +1,8 @@
 package net.balmes.rrufo.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -31,29 +33,10 @@ public class CourseMaterial {
 	@OneToOne
 	private Course Course;
 	*/
-	/*
-	@ManyToOne
-	private Course course;
-	*/
-	/*
-	@ManyToOne(cascade = )
-	@JsonIgnore
-	private Course course;
-	*/
-	/*
-	@ManyToOne(fetch = )
-	@JsonIgnore
-	private Course course;
-	*/
 	
-	@ManyToOne(optional = )
+	@ManyToOne(optional = true, fetch = FetchType.EAGER,cascade =CascadeType.ALL  )
 	@JsonIgnore
 	private Course course;
 	
-	/*
-	@ManyToOne(targetEntity = )
-	@JsonIgnore
-	private Course course;
-	*/
 }
 
