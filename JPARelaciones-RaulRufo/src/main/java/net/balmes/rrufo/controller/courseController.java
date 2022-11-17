@@ -3,7 +3,6 @@ package net.balmes.rrufo.controller;
 import java.time.LocalDateTime;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.context.config.ConfigDataResourceNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -16,6 +15,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import net.balmes.rrufo.entity.Course;
 import net.balmes.rrufo.error.apiError;
+import net.balmes.rrufo.repositorio.courseMaterialRepositorio;
 import net.balmes.rrufo.repositorio.courseRepositorio;
 
 
@@ -25,6 +25,7 @@ public class courseController {
 	
 	@Autowired
 	courseRepositorio cursosRep;
+	courseMaterialRepositorio cursosMaterialRep;
 	
 	// Muestra los cursos por Id
 	@GetMapping("cursos/{id}")
@@ -39,13 +40,21 @@ public class courseController {
 	public Iterable<Course> getCursos() {
 		return cursosRep.findAll();
 	}
-	// Elimina curso por Id
-	/* @DeleteMapping("curso/delete/{id}")
+	
+	// Elimina curso y material por Id OPCION 1
+	@DeleteMapping("curso/delete/Curso-y-Material{id}")
 	@ResponseStatus(code = HttpStatus.NO_CONTENT)
-	public String deleteById(@PathVariable("id") int id) {
-	    cursosRep.deleteById((long)id);
-	    return "eliminado";
-	}*/
+	public void deleteCursoyMaterialById(@PathVariable("id") long id) {
+		cursosRep.deleteById(id);
+		cursosMaterialRep.deleteById(id);
+	}
+		
+	// Elimina curso por Id OPCION 2
+	@DeleteMapping("curso/delete/{id}")
+	@ResponseStatus(code = HttpStatus.NO_CONTENT)
+	public void deleteById(@PathVariable("id") long id) {
+	    cursosRep.deleteById(id);
+	}
 	        
 	//Control del error
 	@ExceptionHandler(Exception.class)
